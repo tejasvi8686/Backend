@@ -1,5 +1,5 @@
 // Import the model
-const Todo = require("../models/todo");
+const Todo = require("../models/Todo");
 
 // Define route
 exports.createTodo = async (req, res) => {
@@ -19,6 +19,7 @@ exports.createTodo = async (req, res) => {
   } catch (err) {
     // Handle error
     console.error(err);
+    console.log(err);
     res.status(500).json({
       success: false,
       message: "Something went wrong",
