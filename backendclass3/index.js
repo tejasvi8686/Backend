@@ -27,5 +27,5 @@ dbConnect();
 
 // Default routes
 app.get("/", (req, res) => {
-  res.send("<h1>Welcome to Backedn class 2</h1>");
+  res.send("<h1>Welcome to Backend class3</h1>");
 });
