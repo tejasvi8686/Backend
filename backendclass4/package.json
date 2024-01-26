@@ -1,5 +1,5 @@
 {
-  "name": "backendclass4",
+  "name": "blogapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,9 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.0",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongoose": "^8.1.0",
-    "nodemon": "^3.0.3"
+    "mongoose": "^7.0.4",
+    "nodemon": "^2.0.22"
   }
 }
