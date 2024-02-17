@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
 
   email: {
     type: String,
-    require: true,
+    required: true, // Changed from "require" to "required"
     trim: true,
   },
 
@@ -23,5 +23,4 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.mode("user", userSchema);
-
+module.exports = mongoose.model("User", userSchema); // Changed from "mode" to "model", and "user" to "User"
