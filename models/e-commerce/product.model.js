@@ -15,7 +15,24 @@ const productSchema = new mongoose.Schema(
     },
     price: {
       type: Number,
+      default: 0
     },
+
+    stock: {
+        default: 0,
+        type : Number
+    },
+
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        required : true,
+        ref: "Category"
+    },
+    owner : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }
+    
   },
   { timestamps: true }
 );

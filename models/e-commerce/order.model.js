@@ -1,24 +1,41 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const orderItemSchema = new mongoose.Schema({
+  productId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Product",
+  },
 
-    username : {
-        type: String,
-        required: true,
-        unique: true,
-        lowercase: true,
+  quantity: {
+    type: Number,
+    required: true,
+  },
+});
+
+const orderSchema = new mongoose.Schema(
+  {
+    orderPrice: {
+      type: Number,
+      required: true,
     },
-    email : {
-        type: String,
-        required: true,
-        unique: true,
-        lowercase: true
+    customer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
-    password : {
+    orderItems: {
+      type: [orderItemSchema],
+    },
+    address : {
         type: String,
         required: true
+    },
+    status: {
+        type: String,
+        enum: ["PENDING", "CANCELLED", "DELIVERED",],
+        default: "PENDING"
     }
+  },
+  { timestamp: true }
+);
 
-}, {timeStamp: true})
-
-export const User = mongoose.model("User", userSchema)
+export const Order = mongoose.model("order", orderSchema);
